@@ -11,6 +11,7 @@ import Button from "@/components/common/Button";
 import Icon from "@/components/common/Icon";
 import { Text } from "@/components/Themed";
 import { FONT, SIZES } from "@/constants/themes";
+import { StatusBar } from "expo-status-bar";
 
 type Props = {};
 
@@ -82,6 +83,7 @@ const Webview = (props: Props) => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
       { progress >= 1 && <WebviewHeader />}
       <WebView
         source={{ uri: url }}
