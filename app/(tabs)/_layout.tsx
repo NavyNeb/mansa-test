@@ -5,7 +5,8 @@ import { Pressable } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { FONT, SIZES } from '@/constants/themes';
+import Icon from '@/components/common/Icon';
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -21,37 +22,46 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
+        tabBarActiveTintColor: '#6366F1',
+        tabBarInactiveTintColor: '#CBD5E1',
+        headerShown: false,
+        tabBarStyle: {
+          height: 76,
+          backgroundColor:'#F8FAFC',
+          elevation: 0,
+        },
+        tabBarLabelStyle: {
+          fontFamily: FONT.medium,
+          fontSize: SIZES.small,
+          marginBottom: 8
+        }
       }}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          title: 'Stores',
+          tabBarIcon: ({ color, size }) => <Icon iconType='materialcommunityicons' size={size} name="view-grid-plus-outline" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="shipping"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Shipping',
+          tabBarIcon: ({ color, size }) => <Icon iconType='feather' name="package" color={color} size={size} />,
+        }}
+      />
+       <Tabs.Screen
+        name="transaction"
+        options={{
+          title: 'Transactions',
+          tabBarIcon: ({ color, size }) => <Icon iconType='fontawesome6' name="clock-rotate-left" color={color} size={size} />,
+        }}
+      />
+       <Tabs.Screen
+        name="more"
+        options={{
+          title: 'More',
+          tabBarIcon: ({ color, size }) => <Icon iconType='ionicons' name="menu" color={color} size={size} />,
         }}
       />
     </Tabs>

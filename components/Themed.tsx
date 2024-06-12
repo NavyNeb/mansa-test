@@ -20,11 +20,12 @@ import { FONT, SIZES } from "../constants/themes";
 type ThemeProps = {
   lightColor?: string;
   darkColor?: string;
+  className?: string;
 };
 
 type TextTypeProps = {
-  font?: string;
-  size?: string
+  font?: "regular" | "medium";
+  size?: "xSmall" | "small" | "medium" | "large" | "xLarge";
 }
 
 export type TextProps = TextTypeProps & DefaultText["props"];
@@ -50,7 +51,7 @@ export function Text(props: TextProps) {
   const { style, font="regular", size="small", ...otherProps } = props;
   // const color = useThemeColor({ light: lightColor, dark: darkColor }, "text");
 
-  return <DefaultText style={[{ fontSize: SIZES[size], fontFamily: FONT[font] }, style]} {...otherProps} />;
+  return <DefaultText style={[{ fontSize: SIZES[size], fontFamily: FONT[font], color: '#1E293B'}, style]} {...otherProps} />;
 }
 
 export function View(props: ViewProps) {

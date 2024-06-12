@@ -4,6 +4,7 @@ import AntDesign  from '@expo/vector-icons/AntDesign'
 import  Entypo  from '@expo/vector-icons/Entypo'
 import  FontAwesome  from '@expo/vector-icons/FontAwesome'
 import  FontAwesome5  from '@expo/vector-icons/FontAwesome5'
+import  FontAwesome6  from '@expo/vector-icons/FontAwesome6'
 import  Fontisto  from '@expo/vector-icons/Fontisto'
 import  Foundation  from '@expo/vector-icons/Foundation'
 import  MaterialCommunityIcons  from '@expo/vector-icons/MaterialCommunityIcons'
@@ -17,7 +18,7 @@ import  Zocial  from '@expo/vector-icons/Zocial'
 import { GlyphMap, IconProps } from '@expo/vector-icons/build/createIconSet'
 
 type Props = {
-    iconType: "antdesign" | "entypo" | "fontawesome" | "fontawesome5" | "fontisto" | "foundation" | "materialcommunityicons" | "materialicons" | "evilicons" | "feather" | "ionicons" | "simplelineicons" | "octicons" | "zocial",
+    iconType: "antdesign" | "entypo" | "fontawesome" | "fontawesome5" | "fontawesome6" | "fontisto" | "foundation" | "materialcommunityicons" | "materialicons" | "evilicons" | "feather" | "ionicons" | "simplelineicons" | "octicons" | "zocial",
     [key: string]: any;
 }
 
@@ -33,6 +34,8 @@ const Icon = ({iconType, ...props}: Props) => {
                 return FontAwesome;
             case 'fontawesome5':
                 return FontAwesome5;
+                case 'fontawesome6':
+                    return FontAwesome6;
             case 'fontisto':
                 return Fontisto;
             case 'foundation':
